@@ -1,0 +1,23 @@
+h1.{
+    text-align: center;
+}
+body {
+text-align: center;
+}
+img{
+ width: 500px;
+}
+div {
+background-color: grey;
+}
+.livros{
+    width: 100%;
+}
+
+.livros a{
+display: inline-block; padding: 10px 20px; font-size: 16px; color: #fff; background-color: #007BFF; text-align: center; text-decoration: none; border-radius: 5px; transition: background-color 0.3s;
+}
+.adicionarusuario{
+background-color: grey;
+
+}
