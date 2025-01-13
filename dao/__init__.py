@@ -4,10 +4,10 @@ import psycopg2
 #provê conexao com o banco de dados
 def conectardb():
     con = psycopg2.connect(
-        host='localhost',
-        database='eloisap4',
-        user='postgres',
-        password='1234'
+        host='livro_ggm9_user',
+        database='livro_ggm9',
+        user='livro_ggm9_user',
+        password='mTCebfzldtYm6WgS6xnR3HvfkeFoeTtZ'
     )
     return con
 
