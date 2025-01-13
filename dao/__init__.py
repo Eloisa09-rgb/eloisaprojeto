@@ -4,7 +4,7 @@ import psycopg2
 #provê conexao com o banco de dados
 def conectardb():
     con = psycopg2.connect(
-        host='livro_ggm9_user',
+        host='pg-cu2lq6pu0jms73apljc0-a.oregon-postgres.render.com',
         database='livro_ggm9',
         user='livro_ggm9_user',
         password='mTCebfzldtYm6WgS6xnR3HvfkeFoeTtZ'
