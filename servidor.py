@@ -52,16 +52,17 @@ def mostrar_pag_cadstrolivro():
     return render_template('adicionarlivro.html')
 
 @app.route ('/adicionarlivro', methods=['POST'])
-def cadastrarlivro():
-    nome = request.form.get('nome')
-    codigo = request.form.get('codigo')
-    disponivel = request.form.get('disponivel')
+def adicionarlivro():
+    titulo = request.form.get('titulo')
+    autor = request.form.get('autor')
+    editora = request.form.get('editora')
 
-    if dao.adicionarlivro( nome, codigo, disponivel):
-        return render_template('index.html', msg='Livro cadastrado com sucesso')
+    if dao.adicionarlivro( titulo, autor, editora):
+        return render_template('adicionarlivro.html', msg='Livro cadastrado com sucesso')
     else:
-        return render_template('index.html', msg='Erro ao inserir Livro')
+        return render_template('adicionarlivro.html', msg='Erro ao inserir Livro')
 
 
 if __name__ == '__main__':
-  app.run(debug=True)
+
+ app.run(debug=True)

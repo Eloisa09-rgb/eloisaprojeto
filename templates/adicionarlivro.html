@@ -1,27 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Portal de livros online</title>
+    <title>Adicionar Livro</title>
+    <link rel="stylesheet" type="text/css" href="..//static//adicionarlivro.css">
 </head>
 <body>
+    <div class="container">
+        <h1>Adicionar Livro</h1>
+        <form action="/adicionarlivro" method="post">
+            <label for="titulo">Título:</label>
+            <input type="text" id="titulo" name="titulo" required>
 
-    <form action="/adicionarlivro" method="post">
+            <label for="autor">Autor:</label>
+            <input type="text" id="autor" name="autor" required>
 
-        <label>Digite o nome do livro:</label>
-        <input type="text" name="livro">
-        <br>
-        <label>Digite o código do livro:</label>
-        <input type="text" name="nome">
-        <br>
-        <labeL>Digite quantos estão disponiveis</label>
-        <input type="number" name="disponivel">
-        <br>
-        <button type="submit">Entrar</button>
-
-    </form>
+            <label for="editora">Editora:</label>
+            <input type="text" id="editora" name="editora" required>
 
 
 
+            <button type="submit">Adicionar Livro</button>
+        </form>
+    </div>
 </body>
 </html>

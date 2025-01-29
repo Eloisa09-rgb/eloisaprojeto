@@ -4,13 +4,12 @@ import psycopg2
 #provê conexao com o banco de dados
 def conectardb():
     con = psycopg2.connect(
-        host='pg-cu2lq6pu0jms73apljc0-a.oregon-postgres.render.com',
+        host='dpg-cu2lq6pu0jms73apljc0-a.oregon-postgres.render.com',
         database='livro_ggm9',
         user='livro_ggm9_user',
         password='mTCebfzldtYm6WgS6xnR3HvfkeFoeTtZ'
     )
     return con
-
 
 #verifica no banco de dados se existe um usuário com matrícula e a senha
 #informadas por parâmetro
@@ -25,7 +24,7 @@ def verificarlogin(login, senha, conexao):
     return recset
 
  #inserir usuario
-def inserirusuario(login, senha, nome):
+def adicionarusuario(login, senha, nome):
     #método para conectar o banco de dados, retornando a conexao com o BD
     conexao = conectardb()
     cur = conexao.cursor()
@@ -53,20 +52,31 @@ def listarpessoas():
 
     return recset
 
-def adicionarlivro(nome, codigo, disponivel):
+def adicionarlivro(titulo, autor, editora):
+    conexao = conectardb()
+    cur = conexao.cursor()
     exito = False
     try:
-        sql = f"INSERT INTO livros (nome, codigo, disponivel) VALUES ('{nome}', '{codigo}' , ' {disponivel})"
+        sql = f"INSERT INTO livros (titulo, autor, editora) VALUES ('{titulo}', '{autor}' , '{editora}')"
         cur.execute(sql)
-    except psycopg2.Error:
+    except psycopg2.Error as e:
+        print(f"Erro ao adicionar livro: {e}")
         conexao.rollback()
         exito = False
     else:
         conexao.commit()
         exito = True
 
-        conexao.close()
+
+    conexao.close()
     return exito
+import psycopg2  # Certifique-se de ter o psycopg2 instalado
+import logging
+
+# Configurar logging
+logging.basicConfig(level=logging.ERROR, format='%(asctime)s - %(levelname)s - %(message)s')
+
+
 
 
 
