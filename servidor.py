@@ -3,6 +3,7 @@ import dao
 
 app = Flask(__name__)
 
+app.secret_key = 'khgGH4J32G4J'
 
 @app.route('/')
 def pagina_inicial():
@@ -12,9 +13,11 @@ def pagina_inicial():
 def page_adicionar_usuario():
     return render_template('adicionarusuario.html')
 
-@app.route('/listarlivros')
+@app.route('/listar_livros')
 def listar_livros():
-    return render_template('listarlivros.html')
+    livros = dao.listarlivros(session['login'])
+    print(livros)
+    return render_template('listarlivros.html',lista=livros)
 
 @app.route('/adicionarusuario', methods=['POST'])
 def adicionar_usuario():
@@ -36,6 +39,7 @@ def login():
     resultado = dao.verificarlogin(login, senha, dao.conectardb())
 
     if len(resultado) > 0:
+        session['login'] = login
         return render_template('homeuser.html', user=resultado[0][1])
     else:
         msg = 'Senha ou login incorretos'
@@ -56,6 +60,7 @@ def adicionarlivro():
     titulo = request.form.get('titulo')
     autor = request.form.get('autor')
     editora = request.form.get('editora')
+    login = session['login']
 
     if dao.adicionarlivro( titulo, autor, editora):
         return render_template('adicionarlivro.html', msg='Livro cadastrado com sucesso')

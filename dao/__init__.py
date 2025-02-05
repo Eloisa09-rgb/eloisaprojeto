@@ -1,7 +1,9 @@
-import psycopg2
+import psycopg2  # Certifique-se de ter o psycopg2 instalado
+import logging
 
 #para acessar o banco de dados, eu preciso de uma conexao.
 #provê conexao com o banco de dados
+
 def conectardb():
     con = psycopg2.connect(
         host='dpg-cu2lq6pu0jms73apljc0-a.oregon-postgres.render.com',
@@ -52,6 +54,16 @@ def listarpessoas():
 
     return recset
 
+def listarlivros(login):
+    conexao = conectardb()
+
+    cur = conexao.cursor()
+    cur.execute(f"SELECT * FROM livros where login = '{login}'")
+    recset = cur.fetchall()
+    conexao.close()
+
+    return recset
+
 def adicionarlivro(titulo, autor, editora):
     conexao = conectardb()
     cur = conexao.cursor()
@@ -75,8 +87,6 @@ import logging
 
 # Configurar logging
 logging.basicConfig(level=logging.ERROR, format='%(asctime)s - %(levelname)s - %(message)s')
-
-
 
 
 

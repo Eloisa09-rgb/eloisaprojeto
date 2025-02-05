@@ -1,0 +1,62 @@
+/* Reset básico */
+body, h1, ul, li, p {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilo para o corpo da página */
+body {
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    text-align: center;
+}
+
+/* Estilo para o contêiner principal */
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 800px;
+}
+
+/* Estilo para o título */
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+/* Estilo para a lista de livros */
+.book-list {
+    list-style-type: none;
+}
+
+/* Estilo para cada item de livro */
+.book-item {
+    background-color: #e9e9e9;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 4px;
+    text-align: left;
+}
+
+/* Estilo para o título do livro */
+.book-item h2 {
+    color: #4CAF50;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+/* Estilo para o autor e editora */
+.book-item p {
+    color: #555;
+    margin-bottom: 5px;
+    font-size: 1.1em;
+}

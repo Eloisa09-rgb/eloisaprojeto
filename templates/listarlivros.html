@@ -2,14 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Portal de Livros Online</title>
+    <title>Listar Livros</title>
+    <link rel="stylesheet" href="..//static//listarlivros.css">
 </head>
 <body>
-<h1>
-    Aqui vao estar meus livros
-</h1>
-
-<a href="https://www.amazon.fr/CAFE-DEUS-2023-Portugues-Brasil/dp/6555843144"> Acesse aqui o livro café com Deus pai</a>
-
+    <div class="container">
+        <h1>Livros disponíveis Livros</h1>
+        <ul class="book-list">
+            {% for livro in lista %}
+            <li class="book-item">
+                <h2>Título: {{livro[0]}}</h2>
+                <p>Autor: {{livro[1]}}</p>
+                <p>Editora: {{livro[2]}}</p>
+            </li>
+           {% endfor %}
+            <!-- Adicione mais itens de livros aqui -->
+        </ul>
+        <button onclick="window.history.back()">Voltar</button>
+    </div>
 </body>
 </html>
+
+
+

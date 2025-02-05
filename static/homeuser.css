@@ -1,47 +1,47 @@
-/* Resetando margens e padding */
-* {
+/* Reset básico */
+body, h1, p, a {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-/* Estilos básicos do corpo */
-body {
     font-family: Arial, sans-serif;
-    background-color:grey ;
-    padding: 20px;
 }
 
-/* Estilos do menu */
-.menu ul {
-    list-style: none;
+/* Estilo para o corpo da página */
+body {
+    background-color: #f0f0f0;  /* Cinza claro */
     display: flex;
     justify-content: center;
-    gap: 20px;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    text-align: center;
 }
 
-.menu li {
-    display: inline;
+/* Estilo para o título */
+h1 {
+    color: #333333;  /* Cinza escuro */
+    margin-bottom: 20px;
+    font-size: 2.5em;
 }
 
-.button {
+/* Estilo para os parágrafos */
+p {
+    color: #666666;  /* Cinza médio */
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+/* Estilo para o link */
+a {
+    color: #4CAF50;  /* Verde para destacar */
     text-decoration: none;
-    padding: 10px 20px;
-    background-color: black;
-    color: white;
-    border-radius: 5px;
-    font-size: 16px;
-    transition: background-color 0.3s, transform 0.3s;
+    font-weight: bold;
 }
 
-/* Efeito de hover */
-.button:hover {
-    background-color: #pink;
-    transform: scale(1.1);
+a:hover {
+    text-decoration: underline;
 }
 
-/* Efeito de foco */
-.button:focus {
-    outline: none;
-    box-shadow: 0 0 10px rgba(52, 152, 219, 0.6);
+/* Estilo para espaço entre elementos */
+br {
+    margin-top: 20px;
 }
