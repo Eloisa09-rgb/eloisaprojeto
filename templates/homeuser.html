@@ -1,22 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-     <link rel="stylesheet" href="..//static//homeuser.css">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="../static/homeuser.css">
 </head>
 <body>
-    <h1>Seja bem-vinda {{user}}</h1>
-    <p>Você se logou no sistema</p>
-    <p>
-        <a href="/listar_livros">Veja os livros disponíveis:</a>
-        <br>
-        <a href="/page_add_livro">Cadastre aqui seus livros:</a>
-    </p>
-
-    <br><br>
-
-
-
+    <div class="container">
+        <header>
+            <h1>Seja bem-vinda, {{user}}</h1>
+            <p>Você se logou no sistema</p>
+        </header>
+        <main>
+            <section class="links">
+                <a href="/listar_livros" class="button">Veja os livros disponíveis</a>
+                <a href="/page_add_livro" class="button">Cadastre aqui seus livros</a>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2025 Seu Sistema. Todos os direitos reservados.</p>
+             <a href='/'>Voltar</a>
+        </footer>
+    </div>
 </body>
 </html>

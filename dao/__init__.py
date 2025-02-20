@@ -6,10 +6,10 @@ import logging
 
 def conectardb():
     con = psycopg2.connect(
-        host='dpg-cu2lq6pu0jms73apljc0-a.oregon-postgres.render.com',
-        database='livro_ggm9',
-        user='livro_ggm9_user',
-        password='mTCebfzldtYm6WgS6xnR3HvfkeFoeTtZ'
+        host='dpg-cumfc4aj1k6c73aljd60-a.oregon-postgres.render.com',
+        database='livro_ppf1',
+        user='livro_ppf1_user',
+        password='3DHq3GOoM8R2OQMMjdd1FDuJ2Ww29qbu'
     )
     return con
 
@@ -26,9 +26,8 @@ def verificarlogin(login, senha, conexao):
     return recset
 
  #inserir usuario
-def adicionarusuario(login, senha, nome):
+def adicionarusuario(login, senha, nome, conexao):
     #método para conectar o banco de dados, retornando a conexao com o BD
-    conexao = conectardb()
     cur = conexao.cursor()
     exito = False
     try:
@@ -64,12 +63,12 @@ def listarlivros(login):
 
     return recset
 
-def adicionarlivro(titulo, autor, editora):
+def adicionarlivro(titulo, autor, editora, login):
     conexao = conectardb()
     cur = conexao.cursor()
     exito = False
     try:
-        sql = f"INSERT INTO livros (titulo, autor, editora) VALUES ('{titulo}', '{autor}' , '{editora}')"
+        sql = f"INSERT INTO livros (titulo, autor, editora, login) VALUES ('{titulo}', '{autor}' , '{editora}', '{login}')"
         cur.execute(sql)
     except psycopg2.Error as e:
         print(f"Erro ao adicionar livro: {e}")

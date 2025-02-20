@@ -8,7 +8,28 @@ form {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+h1{
+   text-align: center;
 
+}
+ .styled-button {
+            background-color: #008000; /* Cor de fundo verde */
+            border: none; /* Remove bordas */
+            color: white; /* Cor do texto */
+            padding: 15px 32px; /* Espaçamento interno */
+            text-align: center; /* Alinhamento do texto */
+            text-decoration: none; /* Remove sublinhado */
+            display: inline-block; /* Exibição em linha */
+            font-size: 16px; /* Tamanho da fonte */
+            margin: 4px 2px; /* Margens */
+            cursor: pointer; /* Cursor de ponteiro */
+            border-radius: 12px; /* Borda arredondada */
+            transition: background-color 0.3s; /* Efeito de transição suave */
+        }
+
+        .styled-button:hover {
+            background-color: #006400; /* Cor de fundo ao passar o mouse (verde escuro) */
+        }
 /* Estilos para os campos de entrada */
 input[type="text"], input[type="email"], input[type="password"] {
     width: 100%;

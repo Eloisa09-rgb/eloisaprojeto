@@ -1,5 +1,6 @@
 from flask import *
 import dao
+from dao import conectardb
 
 app = Flask(__name__)
 
@@ -17,22 +18,27 @@ def page_adicionar_usuario():
 def listar_livros():
     livros = dao.listarlivros(session['login'])
     print(livros)
-    return render_template('listarlivros.html',lista=livros)
+    return render_template('listarlivros.html', lista=livros)
+
 
 @app.route('/adicionarusuario', methods=['POST'])
-def adicionar_usuario():
+def adicionarusuario():
     login = request.form.get('login')
     senha = request.form.get('senha')
     nome = request.form.get('nome')
 
-    if dao.inserirusuario(login, senha, nome):
+    if dao.adicionarusuario(login, senha, nome, dao.conectardb()):
         return render_template('index.html', msg='Usuário cadastrado com sucesso')
     else:
         return render_template('index.html', msg='Erro ao inserir usuário')
 
 
-@app.route('/login', methods=['POST'])
+
+@app.route('/login', methods=['POST','GET'])
 def login():
+    if request.method == 'GET' and 'login' in session:
+        return render_template('homeuser.html', user=session['nome'])
+
     login = request.form.get('login')
     senha = request.form.get('senha')
 
@@ -40,6 +46,7 @@ def login():
 
     if len(resultado) > 0:
         session['login'] = login
+        session['nome'] = resultado[0][1]
         return render_template('homeuser.html', user=resultado[0][1])
     else:
         msg = 'Senha ou login incorretos'
@@ -62,7 +69,7 @@ def adicionarlivro():
     editora = request.form.get('editora')
     login = session['login']
 
-    if dao.adicionarlivro( titulo, autor, editora):
+    if dao.adicionarlivro( titulo, autor, editora, login):
         return render_template('adicionarlivro.html', msg='Livro cadastrado com sucesso')
     else:
         return render_template('adicionarlivro.html', msg='Erro ao inserir Livro')

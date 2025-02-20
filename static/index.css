@@ -1,9 +1,4 @@
 /* Reset básico */
-body, h1, p, a, img, label, input, button {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-}
 
 /* Estilo para o corpo da página */
 body {
@@ -18,18 +13,19 @@ body {
 
 /* Estilo para o título */
 h1 {
-    color: #333333;
-    margin-bottom: 20px;
+   color: #333;
     font-size: 2em;
+    text-align: center; /* Centralizar o texto */
+    margin-top: 20px;
 }
 
 /* Estilo para a imagem */
 img {
-    max-width: 80%;
-    height: auto;
+    max-width: 50%;
+    height: baixo;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+    margin-bottom: 0px;
 }
 
 /* Estilo para a seção de login */
